@@ -11,21 +11,6 @@ namespace ToDoApp.Services
 {
     public class TaskStoreService
     {
-        //SINGLETON CLASS//
-
-        public List<TaskModel> _tasksList;
-
-        public TaskStoreService()
-        {
-            _tasksList = new List<TaskModel>();
-            TaskModel _defaultTask = new TaskModel();
-            _defaultTask.Name = "Title";
-            _defaultTask.Description = "Description";
-            _defaultTask.Value = 1;
-            _defaultTask.Id = Guid.NewGuid();
-            _tasksList.Add(_defaultTask);
-        }
-
         private static TaskStoreService _instance;
         public static TaskStoreService Instance()
         {
@@ -36,6 +21,21 @@ namespace ToDoApp.Services
             return _instance;
         }
 
+        public List<TaskModel> _tasksList;
+        public List<TaskModel> _categoryTaskList;
+
+        public TaskStoreService()
+        {
+            _tasksList = new List<TaskModel>();
+            _categoryTaskList = new List<TaskModel>();
+            TaskModel _defaultTask = new TaskModel();
+            _defaultTask.Name = "Task1";
+            _defaultTask.Description = "#hashtag";
+            _defaultTask.Value = 1;
+            _defaultTask.TaskId = Guid.NewGuid();
+            _tasksList.Add(_defaultTask);
+        }
+
         public static void AddNewTask(TaskModel newTask)
         {
             _instance._tasksList.Add(newTask);
@@ -43,7 +43,7 @@ namespace ToDoApp.Services
 
         public static void RemoveTask(Guid rTaskID)
         {
-            var taskToRemoving = Instance()._tasksList.FirstOrDefault(t => t.Id == rTaskID);
+            var taskToRemoving = Instance()._tasksList.FirstOrDefault(t => t.TaskId == rTaskID);
             _instance._tasksList.Remove(taskToRemoving);
         }
 
@@ -54,7 +54,17 @@ namespace ToDoApp.Services
 
         public static TaskModel FindTask(Guid taskID)
         {
-            return Instance()._tasksList.FirstOrDefault(t => t.Id == taskID);
+            return Instance()._tasksList.FirstOrDefault(t => t.TaskId == taskID);
+        }
+
+        public static void AddToCategoryTaskList(TaskModel taskToAdd)
+        {
+            Instance()._categoryTaskList.Add(taskToAdd);
+        }
+
+        public static List<TaskModel> ReturnCategoryTaskList()
+        {
+            return _instance._categoryTaskList;
         }
     }
 }

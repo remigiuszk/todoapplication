@@ -55,52 +55,71 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\AddCategoryCommand.cs" />
-    <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\CreateTaskCommand.cs" />
-    <Compile Include="Commands\DisplayContentCommand.cs" />
-    <Compile Include="Commands\EditTaskCommand.cs" />
-    <Compile Include="Commands\ExitTaskEditingCommand.cs" />
-    <Compile Include="Commands\FinishTaskCommand.cs" />
-    <Compile Include="Commands\RemoveTaskCommand.cs" />
-    <Compile Include="Commands\SaveChangesCommand.cs" />
-    <Compile Include="Commands\UpdateViewCommand.cs" />
-    <Compile Include="Components\FinishedTasksList.xaml.cs">
+    <Compile Include="Commands\Profile\AddCategoryCommand.cs" />
+    <Compile Include="Commands\Base\CommandBase.cs" />
+    <Compile Include="Commands\Profile\DisplayAddPanelCommand.cs" />
+    <Compile Include="Commands\Profile\DisplayTaskListviewCommand.cs" />
+    <Compile Include="Commands\Profile\SelectDateCommand.cs" />
+    <Compile Include="Commands\Profile\ShowCalendarCommand.cs" />
+    <Compile Include="Commands\Task\CreateTaskCommand.cs" />
+    <Compile Include="Commands\Profile\DisplayCategoriesCommand.cs" />
+    <Compile Include="Commands\Task\EditTaskCommand.cs" />
+    <Compile Include="Commands\Task\ExitTaskEditingCommand.cs" />
+    <Compile Include="Commands\Task\FinishTaskCommand.cs" />
+    <Compile Include="Commands\Task\RemoveTaskCommand.cs" />
+    <Compile Include="Commands\Task\SaveChangesCommand.cs" />
+    <Compile Include="Commands\View\UpdateViewCommand.cs" />
+    <Compile Include="Components\Task\FinishedTasksList.xaml.cs">
       <DependentUpon>FinishedTasksList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Components\TasksList.xaml.cs">
+    <Compile Include="Components\Task\TasksList.xaml.cs">
       <DependentUpon>TasksList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CategoryTaskModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
+    <Compile Include="Services\CategoryStoreService.cs" />
+    <Compile Include="Services\CategoryTaskStoreService.cs" />
     <Compile Include="Services\MappingService.cs" />
     <Compile Include="Services\TaskStoreService.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\FinishedTasksViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\ProfileViewModel.cs" />
-    <Compile Include="ViewModels\TasksListViewModel.cs" />
-    <Compile Include="ViewModels\TaskViewModel.cs" />
-    <Compile Include="Views\FinishedTasksView.xaml.cs">
+    <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Profile\CategoriesPanelViewModel.cs" />
+    <Compile Include="ViewModels\Profile\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Profile\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\Task\FinishedTasksViewModel.cs" />
+    <Compile Include="ViewModels\View\MainViewModel.cs" />
+    <Compile Include="ViewModels\Profile\ProfileViewModel.cs" />
+    <Compile Include="ViewModels\Task\TasksListViewModel.cs" />
+    <Compile Include="ViewModels\Task\TaskViewModel.cs" />
+    <Compile Include="Views\Profile\CategoriesPanelView.xaml.cs">
+      <DependentUpon>CategoriesPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile\CategoryView.xaml.cs">
+      <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Task\FinishedTasksView.xaml.cs">
       <DependentUpon>FinishedTasksView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainView.xaml.cs">
+    <Compile Include="Views\View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProfileView.xaml.cs">
+    <Compile Include="Views\Profile\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TasksListView.xaml.cs">
+    <Compile Include="Views\Profile\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Task\TasksListView.xaml.cs">
       <DependentUpon>TasksListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TaskView.xaml.cs">
+    <Compile Include="Views\Task\TaskView.xaml.cs">
       <DependentUpon>TaskView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Components\FinishedTasksList.xaml">
+    <Page Include="Components\Task\FinishedTasksList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Components\TasksList.xaml">
+    <Page Include="Components\Task\TasksList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,23 +143,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FinishedTasksView.xaml">
+    <Page Include="Views\Profile\CategoriesPanelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainView.xaml">
+    <Page Include="Views\Profile\CategoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProfileView.xaml">
+    <Page Include="Views\Task\FinishedTasksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TasksListView.xaml">
+    <Page Include="Views\View\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaskView.xaml">
+    <Page Include="Views\Profile\ProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Profile\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Task\TasksListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Task\TaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +202,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Components\Profile\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,7 +22,8 @@
 
         <!--//BACKGROUND//-->
         <Border Background="White"
-                Grid.ColumnSpan="3"/>
+                Grid.ColumnSpan="3"
+                CornerRadius="6"/>
 
         <!--//COUNTER, LISTVIEW//-->
         <Grid Margin="15">

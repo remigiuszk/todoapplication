@@ -17,7 +17,7 @@ namespace ToDoApp.Commands
         {
             if (_tasksListVM.TasksList.Count > 0 && _tasksListVM.SelectedTask != null)
             {
-                Guid selectedTaskID = _tasksListVM.SelectedTask.Id;
+                Guid selectedTaskID = _tasksListVM.SelectedTask.TaskId;
                 TaskModel returnedTaskModel = TaskStoreService.FindTask(selectedTaskID);
                 returnedTaskModel.IsCompleted = true;
                 _tasksListVM.GetAllTasks();

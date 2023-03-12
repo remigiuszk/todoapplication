@@ -10,6 +10,7 @@
         Background="Transparent"
         MouseDown="Window_MouseDown"
         FontFamily="Rubik"
+        
         Height="558" Width="900">
 
     <Grid>

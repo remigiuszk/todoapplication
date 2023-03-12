@@ -11,7 +11,7 @@ namespace ToDoApp.Views
         public ProfileView()
         {
             InitializeComponent();
-            DataContext = new ProfileViewModel();
+            DataContext = new MainViewModel();
         }
     }
 }

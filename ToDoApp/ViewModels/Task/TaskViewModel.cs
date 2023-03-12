@@ -4,26 +4,21 @@ namespace ToDoApp.ViewModels
 {
     public class TaskViewModel : BaseViewModel
     {
-        private Guid _id;
-
+        private Guid _taskId;
         private string _taskTitle;
-
         private string _taskDescription;
-
         private int _taskValue;
-
         private bool _isCompleted;
 
-        public Guid Id
+        public Guid TaskId
         {
-            get { return _id; }
+            get { return _taskId; }
             set
             {
-                _id = value;
-                OnPropertyChanged(nameof(Id));
+                _taskId = value;
+                OnPropertyChanged(nameof(TaskId));
             }
         }
-
         public string TaskTitle
         {
             get { return _taskTitle; }
@@ -33,7 +28,6 @@ namespace ToDoApp.ViewModels
                 OnPropertyChanged(nameof(TaskTitle));
             }
         }
-
         public string TaskDescription
         {
             get { return _taskDescription; }
@@ -43,6 +37,7 @@ namespace ToDoApp.ViewModels
                 OnPropertyChanged(nameof(TaskDescription));
             }
         }
+
         public int TaskValue
         {
             get { return _taskValue; }

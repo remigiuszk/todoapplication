@@ -16,7 +16,7 @@ namespace ToDoApp.Commands
         {
             if (_tasksListVM.Counter > 1)
             {
-                Guid removeTaskID = _tasksListVM.SelectedTask.Id;
+                Guid removeTaskID = _tasksListVM.SelectedTask.TaskId;
                 TaskStoreService.RemoveTask(removeTaskID);
                 _tasksListVM.GetAllTasks();
             }

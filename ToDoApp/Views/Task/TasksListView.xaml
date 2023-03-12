@@ -20,13 +20,14 @@
 
         <!--//BACKGROUND//-->
         <Border Background="White"
+                CornerRadius="6"
                 Grid.ColumnSpan="2"
                 Grid.RowSpan="2" />
 
         <!--//LEFT SIDE//-->
         <Grid Margin="15">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.65*" />
+                <RowDefinition Height="0.85*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -45,12 +46,12 @@
                          BorderBrush="#0b5345" />
                 <TextBlock Text="Description"
                            FontSize="15" />
-                <TextBox Height="30"
+                <TextBox Height="60"
                          Text="{Binding NewTaskViewModel.TaskDescription,
                                 UpdateSourceTrigger=PropertyChanged}"
-                         VerticalContentAlignment="Center"
                          FontSize="13"
                          Margin="0,3,0,12"
+                         TextWrapping="Wrap"
                          Background="  White    "
                          BorderThickness="1.5"
                          BorderBrush="#0b5345"/>

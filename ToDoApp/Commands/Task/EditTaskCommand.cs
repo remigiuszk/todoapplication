@@ -23,7 +23,7 @@ namespace ToDoApp.Commands
                     Name = _tasksListVM.SelectedTask.TaskTitle,
                     Description = _tasksListVM.SelectedTask.TaskDescription,
                     Value = _tasksListVM.SelectedTask.TaskValue,
-                    Id = _tasksListVM.SelectedTask.Id
+                    TaskId = _tasksListVM.SelectedTask.TaskId
                 };
 
                 var copiedTaskViewModel = MappingService.ToTaskViewModel(copiedTaskModel);

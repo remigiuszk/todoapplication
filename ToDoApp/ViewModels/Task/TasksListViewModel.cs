@@ -54,6 +54,8 @@ namespace ToDoApp.ViewModels
             }
         }
 
+        #region Booleans properties
+
         private bool _isCompleted;
         public bool IsCompleted
         {
@@ -86,6 +88,8 @@ namespace ToDoApp.ViewModels
                 OnPropertyChanged(nameof(IsMoreThanOneTask));
             }
         }
+
+        #endregion
 
         public int Counter { get { return _tasksList.Count; } set { OnPropertyChanged(nameof(Counter)); } }
 

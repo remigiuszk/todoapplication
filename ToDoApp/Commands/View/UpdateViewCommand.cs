@@ -25,6 +25,14 @@ namespace ToDoApp.Commands
             {
                 viewModel.SelectedViewModel = new FinishedTasksViewModel();
             }
+            else if (parameter.ToString() == "Categories")
+            {
+                    viewModel.SelectedViewModel = new CategoriesPanelViewModel();
+            }
+            else if (parameter.ToString() == "Settings")
+            {
+                viewModel.SelectedViewModel = new SettingsViewModel();
+            }
         }
     }
 }

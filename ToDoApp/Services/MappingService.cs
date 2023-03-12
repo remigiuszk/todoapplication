@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using ToDoApp.Models;
 using ToDoApp.ViewModels;
+using ToDoApp.ViewModels.Profile;
 
 namespace ToDoApp.Services
 {
     public static class MappingService
     {
+
+        #region TASK MAPPING
         public static IEnumerable<TaskModel> ToTaskModel(IEnumerable<TaskViewModel> source)
         {
             var result = new List<TaskModel>();
@@ -29,7 +32,7 @@ namespace ToDoApp.Services
                 Name = source.TaskTitle,
                 Description = source.TaskDescription,
                 Value = source.TaskValue,
-                Id = source.Id,
+                TaskId = source.TaskId,
                 IsCompleted = source.IsCompleted
             };
         }
@@ -53,9 +56,34 @@ namespace ToDoApp.Services
                 TaskTitle = source.Name,
                 TaskDescription = source.Description,
                 TaskValue = source.Value,
-                Id = source.Id,
+                TaskId = source.TaskId,
                 IsCompleted = source.IsCompleted
             };
         }
+        #endregion
+
+        #region CATEGORY MAPPING
+        public static CategoryModel ToCategoryModel(CategoryViewModel categoryVM)
+        {
+            return new CategoryModel()
+            {
+                CategoryId = categoryVM.CategoryId,
+                Name = categoryVM.Name,
+                Hashtag = categoryVM.Hashtag,
+                CategoryDate = categoryVM.CategoryDate
+            };
+        }
+
+        public static CategoryViewModel ToCategoryViewModel(CategoryModel categoryModel)
+        {
+            return new CategoryViewModel
+            {
+                CategoryId = categoryModel.CategoryId,
+                Name = categoryModel.Name,
+                Hashtag = categoryModel.Hashtag,
+                CategoryDate = categoryModel.CategoryDate
+            };
+        }
+        #endregion
     }
 }

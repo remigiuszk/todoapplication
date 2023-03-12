@@ -8,7 +8,9 @@ namespace ToDoApp.ViewModels
         public TasksListViewModel TasksListViewModel { get; }
         public FinishedTasksViewModel FinishedTasksViewModel { get; }
         public ProfileViewModel ProfileViewModel { get; }
+        public SettingsViewModel SettingsViewModel { get; }
 
+        public CategoriesPanelViewModel CategoriesViewModel { get; }
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel
         {
@@ -25,6 +27,8 @@ namespace ToDoApp.ViewModels
             TasksListViewModel = new TasksListViewModel();
             ProfileViewModel = new ProfileViewModel();
             UpdateViewCommand = new UpdateViewCommand(this);
+            CategoriesViewModel = new CategoriesPanelViewModel();
+            SettingsViewModel = new SettingsViewModel();
         }
     }
 }

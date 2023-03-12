@@ -24,15 +24,15 @@ namespace ToDoApp.Commands
                     Name = _tasksListVM.EditTaskViewModel.TaskTitle,
                     Description = _tasksListVM.EditTaskViewModel.TaskDescription,
                     Value = _tasksListVM.EditTaskViewModel.TaskValue,
-                    Id = _tasksListVM.EditTaskViewModel.Id
+                    TaskId = _tasksListVM.EditTaskViewModel.TaskId
                 };
 
-                Guid editedTaskID = _tasksListVM.EditTaskViewModel.Id;
+                Guid editedTaskID = _tasksListVM.EditTaskViewModel.TaskId;
                 TaskModel taskToReplaceModel = TaskStoreService.FindTask(editedTaskID);
                 taskToReplaceModel.Name = editedTaskModel.Name;
                 taskToReplaceModel.Description = editedTaskModel.Description;
                 taskToReplaceModel.Value = editedTaskModel.Value;
-                taskToReplaceModel.Id = editedTaskModel.Id;
+                taskToReplaceModel.TaskId = editedTaskModel.TaskId;
                 _tasksListVM.GetAllTasks();
                 _tasksListVM.IsVisibleBoolean = false;
                 _tasksListVM.EditTaskViewModel.TaskTitle = string.Empty;

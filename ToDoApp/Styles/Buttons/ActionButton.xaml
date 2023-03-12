@@ -1,13 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!--//ACTION BUTTONS//-->
     <Style TargetType="Button"
            x:Key="actionButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="20" />
-        <Setter Property="Width" Value="120" />
+        <Setter Property="Width" Value="100" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -59,6 +60,7 @@
         </Setter>
     </Style>
 
+    <!--//ACTION BUTTONS 2//-->
     <Style TargetType="Button"
            x:Key="actionButton2">
         <Setter Property="Background" Value="   #00893a " />
@@ -104,6 +106,65 @@
                                                         To="  #00893a  "
                                                         Duration="0:0:0:0.1" />
                                         
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--//PROFILE BUTTONS//-->
+    <Style TargetType="Button"
+           x:Key="profileMenuButton">
+        <Setter Property="Background" Value="  #24496f  " />
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="Foreground" Value="#cdca00" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Width" Value="125" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            CornerRadius="6"
+                            BorderThickness="3"
+                            BorderBrush="#1e4670">
+                        <ContentPresenter ContentSource="Content"
+                                          TextBlock.TextAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"
+                                          TextBlock.FontSize="{TemplateBinding FontSize}">
+                        </ContentPresenter>
+                    </Border>
+                    <!--//TRIGGERS//-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To=" #778cb7 "
+                                                        Duration="0:0:0:0.1" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="#24496f  "
+                                                        Duration="0:0:0:0.2" />
+
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>

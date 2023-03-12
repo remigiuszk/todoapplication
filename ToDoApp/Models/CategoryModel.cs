@@ -8,9 +8,9 @@ namespace ToDoApp.Models
 {
     public class CategoryModel
     {
-        public Guid Id { get; set; }
+        public Guid CategoryId { get; set; }
         public string Name { get; set; }
         public string Hashtag { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime CategoryDate { get; set; }
     }
 }
