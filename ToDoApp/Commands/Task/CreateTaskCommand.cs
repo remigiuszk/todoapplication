@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using ToDoApp.Commands.Profile;
 using ToDoApp.Models;
 using ToDoApp.Services;
 using ToDoApp.ViewModels;
@@ -8,7 +10,6 @@ namespace ToDoApp.Commands
     public class CreateTaskCommand : CommandBase
     {
         private readonly TasksListViewModel _tasksListVM;
-        //private readonly CategoriesPanelViewModel _categoriesPanelVM;
 
         public override void Execute(object parameter)
         {
@@ -25,10 +26,13 @@ namespace ToDoApp.Commands
                 };
                 TaskStoreService.AddNewTask(newTask);
                 _tasksListVM.GetAllTasks();
+
                 CategoryModel searchForCategory = CategoryStoreService.GetCategoryByDescription(newTask.Description);
-                var categoryTask = new CategoryTaskModel();
-                categoryTask.CategoryId = searchForCategory.CategoryId;
-                categoryTask.TaskId = newTask.TaskId;
+                CategoryTaskModel categoryTask = new CategoryTaskModel
+                {
+                    CategoryId = searchForCategory.CategoryId,
+                    TaskId = newTask.TaskId,
+                };
                 CategoryTaskStoreService.AddNewCategoryTask(categoryTask);
                 _tasksListVM.NewTaskViewModel.TaskTitle = string.Empty;
                 _tasksListVM.NewTaskViewModel.TaskDescription = string.Empty;
@@ -40,20 +44,6 @@ namespace ToDoApp.Commands
         public CreateTaskCommand(TasksListViewModel tasksListVM)
         {
             _tasksListVM = tasksListVM;
-        }
-
-        //public CreateTaskCommand(CategoriesPanelViewModel categoriesPanelVM)
-        //{
-        //    _categoriesPanelVM = categoriesPanelVM;
-        //}
-
-        public void GetCategoryTasks()
-        {
-            //Guid selectedCategoryId = _categoriesPanelVM.SelectedCategory.ModelId;
-            //CategoryTaskModel categoryTaskModel = CategoryTaskStoreService.GetAllTasksForCategory(selectedCategoryId);
-            //Guid taskId = categoryTaskModel.TaskId;
-            //TaskModel taskModel = TaskStoreService.FindTask(taskId);
-            //TaskStoreService.AddToCategoryTaskList(taskModel);
         }
     }
 }

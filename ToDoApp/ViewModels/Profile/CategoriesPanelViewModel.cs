@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using ToDoApp.Commands;
 using ToDoApp.Commands.Profile;
@@ -135,10 +137,9 @@ namespace ToDoApp.ViewModels
             }
         }
 
-        public void GetCategoryTasksList()
+        public void GetCategoryTaskList()
         {
             CategoryTasksList.Clear();
-
             var categoryTasks = TaskStoreService.ReturnCategoryTaskList();
             foreach (TaskModel categoryTaskModel in categoryTasks)
             {

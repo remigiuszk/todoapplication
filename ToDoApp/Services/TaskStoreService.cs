@@ -28,12 +28,12 @@ namespace ToDoApp.Services
         {
             _tasksList = new List<TaskModel>();
             _categoryTaskList = new List<TaskModel>();
-            TaskModel _defaultTask = new TaskModel();
-            _defaultTask.Name = "Task1";
-            _defaultTask.Description = "#hashtag";
-            _defaultTask.Value = 1;
-            _defaultTask.TaskId = Guid.NewGuid();
-            _tasksList.Add(_defaultTask);
+            TaskModel defaultTask = new TaskModel();
+            defaultTask.Name = "Task1";
+            defaultTask.Description = "#hashtag";
+            defaultTask.Value = 1;
+            defaultTask.TaskId = Guid.NewGuid();
+            _tasksList.Add(defaultTask);
         }
 
         public static void AddNewTask(TaskModel newTask)
@@ -60,6 +60,11 @@ namespace ToDoApp.Services
         public static void AddToCategoryTaskList(TaskModel taskToAdd)
         {
             Instance()._categoryTaskList.Add(taskToAdd);
+        }
+
+        public static void RemoveFromCategoryTaskList(TaskModel taskToRemove)
+        {
+            Instance()._categoryTaskList.Remove(taskToRemove);
         }
 
         public static List<TaskModel> ReturnCategoryTaskList()

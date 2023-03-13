@@ -21,6 +21,15 @@ namespace ToDoApp.Commands
                 TaskModel returnedTaskModel = TaskStoreService.FindTask(selectedTaskID);
                 returnedTaskModel.IsCompleted = true;
                 _tasksListVM.GetAllTasks();
+
+                TaskModel taskModel = TaskStoreService.FindTask(selectedTaskID);
+                CategoryModel categoryOfTask = CategoryStoreService.GetCategoryByDescription(taskModel.Description);
+                CategoryTaskModel taskToRemove = new CategoryTaskModel
+                {
+                    CategoryId = categoryOfTask.CategoryId,
+                    TaskId = taskModel.TaskId,
+                };
+                CategoryTaskStoreService.RemoveCategoryTask(taskToRemove);
             }
         }
 

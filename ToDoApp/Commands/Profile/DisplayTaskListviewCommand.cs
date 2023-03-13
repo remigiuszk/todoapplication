@@ -21,7 +21,11 @@ namespace ToDoApp.Commands.Profile
                 _categoriesPanelVM.IsVisibleListview = true;
                 GetCategoryTaskListFromStore();
             }
-            else _categoriesPanelVM.IsVisibleListview = false;
+            else
+            {
+                _categoriesPanelVM.IsVisibleListview = false;
+                RemoveCategoryTaskListFromStore();
+            }
         }
 
         public DisplayTaskListviewCommand(CategoriesPanelViewModel categoriesPanelVM)
@@ -31,17 +35,32 @@ namespace ToDoApp.Commands.Profile
 
         public DisplayTaskListviewCommand()
         {
-            GetCategoryTaskListFromStore();
+            
         }
 
         public void GetCategoryTaskListFromStore()
         {
             Guid selectedCategoryId = _categoriesPanelVM.SelectedCategory.CategoryId;
-            CategoryTaskModel categoryTaskModel = CategoryTaskStoreService.GetAllTasksForCategory(selectedCategoryId);
-            Guid taskId = categoryTaskModel.TaskId;
-            TaskModel taskModel = TaskStoreService.FindTask(taskId);
-            TaskStoreService.AddToCategoryTaskList(taskModel);
-            _categoriesPanelVM.GetCategoryTasksList();
+            List<CategoryTaskModel> categoryTaskList = CategoryTaskStoreService.GetAllTasksForCategory(selectedCategoryId);
+            foreach (CategoryTaskModel task in categoryTaskList)
+            {
+                Guid categoryTaskId = task.TaskId;
+                TaskModel taskModel = TaskStoreService.FindTask(categoryTaskId);
+                TaskStoreService.AddToCategoryTaskList(taskModel);
+            }
+            _categoriesPanelVM.GetCategoryTaskList();
+        }
+
+        public void RemoveCategoryTaskListFromStore()
+        {
+            Guid selectedCategoryId = _categoriesPanelVM.SelectedCategory.CategoryId;
+            List<CategoryTaskModel> categoryTaskList = CategoryTaskStoreService.GetAllTasksForCategory(selectedCategoryId);
+            foreach (CategoryTaskModel task in categoryTaskList)
+            {
+                Guid categoryTaskId = task.TaskId;
+                TaskModel taskModel = TaskStoreService.FindTask(categoryTaskId);
+                TaskStoreService.RemoveFromCategoryTaskList(taskModel);
+            }
         }
     }
 }

@@ -127,7 +127,7 @@
                   Background="#1565c0"
                   Width="350"
                   Grid.Row="3"
-                  Height="100"
+                  Height="150"
                   VerticalAlignment="Top"
                   HorizontalAlignment="Left"
                   Margin="15,0,0,0">

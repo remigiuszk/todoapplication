@@ -36,9 +36,15 @@ namespace ToDoApp.Services
             Instance()._categoryTaskList.Add(newCategoryTask);
         }
 
-        public static CategoryTaskModel GetAllTasksForCategory(Guid categoryId)
+        public static void RemoveCategoryTask(CategoryTaskModel categoryTaskToRemove)
         {
-            return Instance()._categoryTaskList.FirstOrDefault(category => category.CategoryId == categoryId);
+            var searchedTask = Instance()._categoryTaskList.FirstOrDefault(categoryTask => categoryTask.TaskId == categoryTaskToRemove.TaskId);
+            _instance._categoryTaskList.Remove(searchedTask);
+        }
+
+        public static List<CategoryTaskModel> GetAllTasksForCategory(Guid categoryId)
+        {
+            return Instance()._categoryTaskList.FindAll(category => category.CategoryId == categoryId);
         }
     }
 }
